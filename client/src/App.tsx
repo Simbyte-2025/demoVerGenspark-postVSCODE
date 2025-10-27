@@ -7,10 +7,11 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import FeaturedProducts from "./components/FeaturedProducts";
 import About from "./components/About";
-import IdeaGenerator from "./components/IdeaGenerator";
+// import IdeaGenerator from "./components/IdeaGenerator"; // Reemplazado por Chatbot flotante
 import Catalog from "./components/Catalog";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
+import Chatbot from "./components/Chatbot";
 
 function App() {
   // Scroll animation observer
@@ -55,11 +56,14 @@ function App() {
               <Hero />
               <FeaturedProducts />
               <About />
-              <IdeaGenerator />
+              {/* <IdeaGenerator /> - Reemplazado por Chatbot flotante */}
               <Catalog />
               <Testimonials />
             </main>
             <Footer />
+            
+            {/* Chatbot flotante - reemplaza la sección IdeaGenerator */}
+            <Chatbot />
           </div>
         </TooltipProvider>
       </ThemeProvider>
