@@ -17,22 +17,5 @@
   --shadow-button-hover:0 8px 16px rgba(0,0,0,.15);
 }
 
-/* Keyframe adicional para filtros (no usado en animaciones principales) */
-@keyframes filterPulse {
-  0%, 100% { transform: scale(1.05); }
-  50% { transform: scale(1.1); }
-}
-
-/* NOTA: Animaciones principales (gentleFloat, fadeInUp, etc.) están en index.html
-   para evitar que Tailwind v4 las optimice. Solo clases de estado aquí. */
-
-.fade-in-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all var(--duration-slow) var(--ease-natural);
-}
-
-.fade-in-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* NOTA: Animaciones migradas a Framer Motion (useAnimations.ts)
+   para evitar optimización agresiva de Tailwind v4 CSS optimizer */
