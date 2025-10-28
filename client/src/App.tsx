@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -14,36 +13,8 @@ import Footer from "./components/Footer";
 import Chatbot from "./components/Chatbot";
 
 function App() {
-  // Scroll animation observer
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Optional: Stop observing after animation
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Observe all fade-in-scroll elements
-    const targets = document.querySelectorAll('.fade-in-scroll');
-    targets.forEach(el => {
-      observer.observe(el);
-    });
-
-    // Cleanup
-    return () => {
-      targets.forEach(el => {
-        observer.unobserve(el);
-      });
-    };
-  }, []); // Empty array ensures this runs once on mount
+  // Scroll animations handled by Framer Motion (whileInView)
+  // No need for manual IntersectionObserver anymore
 
   return (
     <ErrorBoundary>

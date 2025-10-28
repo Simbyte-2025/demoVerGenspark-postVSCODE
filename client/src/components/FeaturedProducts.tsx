@@ -1,6 +1,9 @@
+import { motion } from "framer-motion";
 import WhatsAppIcon from "./shared/WhatsAppIcon";
+import { animationVariants, useScrollAnimation } from "@/hooks/useAnimations";
 
 export default function FeaturedProducts() {
+  const scrollAnimationProps = useScrollAnimation();
   const whatsappNumber = "56992834268";
 
   const featured = [
@@ -44,9 +47,11 @@ export default function FeaturedProducts() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {featured.map((product, index) => (
-            <div 
+            <motion.div 
               key={index}
-              className="producto-card fade-in-scroll"
+              className="producto-card"
+              variants={animationVariants.fadeInScroll}
+              {...scrollAnimationProps}
             >
               <img 
                 src={product.image} 
@@ -67,14 +72,15 @@ export default function FeaturedProducts() {
                 
                 {/* Botones con nuevas clases */}
                 <div className="botones">
-                  <button
+                  <motion.button
                     onClick={() => handleWhatsApp(product.name)}
                     className="btn-whatsapp"
                     aria-label={`Consultar ${product.name} por WhatsApp`}
                     title={`Consultar ${product.name} por WhatsApp`}
+                    whileHover={animationVariants.heartbeat}
                   >
                     <WhatsAppIcon size={20} title="WhatsApp" />
-                  </button>
+                  </motion.button>
                   
                   <button
                     onClick={() => handlePagar(product.urlPago)}
@@ -86,7 +92,7 @@ export default function FeaturedProducts() {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
