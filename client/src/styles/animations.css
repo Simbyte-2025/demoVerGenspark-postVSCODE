@@ -26,44 +26,44 @@
 @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 @keyframes filterPulse { 0%,100%{transform:scale(1.05)} 50%{transform:scale(1.1)} }
 
-/* === UTILIDADES PERSONALIZADAS (v4 compatible) === */
+/* === UTILIDADES SIMPLES (v4 @utility) === */
 
-/* Flotación suave */
 @utility float-animation {
   animation: gentleFloat 3s ease-in-out infinite;
   display: inline-block;
 }
 
-/* Flotación lenta */
 @utility float-animation-slow {
   animation: gentleFloatSlow 8s ease-in-out infinite;
 }
 
-/* Fade-in por scroll */
 @utility fade-in-scroll {
   opacity: 0;
   transform: translateY(30px);
   transition: all var(--duration-slow) var(--ease-natural);
 }
 
-/* Estado visible (intersectado) */
-@utility fade-in-scroll.visible {
+@utility hero-title {
+  animation: fadeInUp 0.8s var(--ease-natural);
+}
+
+@utility hero-subtitle {
+  animation: fadeInUp 0.8s var(--ease-natural) 0.2s backwards;
+}
+
+@utility hero-cta {
+  animation: fadeInUp 0.8s var(--ease-natural) 0.4s backwards;
+}
+
+/* === UTILIDADES CON PSEUDO-CLASES (CSS tradicional) === */
+
+/* Estado visible para fade-in-scroll */
+.fade-in-scroll.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Heartbeat */
-@utility btn-whatsapp:hover {
+/* Heartbeat en hover para WhatsApp */
+.btn-whatsapp:hover {
   animation: gentleHeartbeat var(--duration-heartbeat) ease-in-out infinite;
-}
-
-/* Hero section */
-@utility hero-title {
-  animation: fadeInUp 0.8s var(--ease-natural);
-}
-@utility hero-subtitle {
-  animation: fadeInUp 0.8s var(--ease-natural) 0.2s backwards;
-}
-@utility hero-cta {
-  animation: fadeInUp 0.8s var(--ease-natural) 0.4s backwards;
 }
