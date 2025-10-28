@@ -1,11 +1,10 @@
-/* Variables base para animaciones */
+/* Variables base para transiciones y sombras */
 :root{
   --duration-instant:200ms;
   --duration-quick:450ms;
   --duration-smooth:600ms;
   --duration-gentle:700ms;
   --duration-slow:800ms;
-  --duration-heartbeat:1500ms;
 
   --ease-natural:cubic-bezier(0.16,1,0.3,1);
   --ease-bounce:cubic-bezier(0.34,1.56,0.64,1);
@@ -18,21 +17,43 @@
   --shadow-button-hover:0 8px 16px rgba(0,0,0,.15);
 }
 
-/* KEYFRAMES */
-@keyframes gentleHeartbeat{0%,100%{transform:scale(1.05)}50%{transform:scale(1.08)}}
-@keyframes gentleFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(5deg)}}
-@keyframes gentleFloatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+/* Keyframes adicionales (no migrados a Tailwind config) */
 @keyframes filterPulse{0%,100%{transform:scale(1.05)}50%{transform:scale(1.1)}}
 
-/* UTILIDADES (Tailwind v4 @utility para selectores simples) */
-@utility float-animation{display:inline-block;animation:gentleFloat 3s ease-in-out infinite}
-@utility float-animation-slow{animation:gentleFloatSlow 8s ease-in-out infinite}
-@utility fade-in-scroll{opacity:0;transform:translateY(30px);transition:all var(--duration-slow) var(--ease-natural)}
-@utility hero-title{animation:fadeInUp .8s var(--ease-natural)}
-@utility hero-subtitle{animation:fadeInUp .8s var(--ease-natural) .2s backwards}
-@utility hero-cta{animation:fadeInUp .8s var(--ease-natural) .4s backwards}
+/* UTILIDADES usando clases de animación de Tailwind v4 */
+@utility float-animation{
+  display:inline-block;
+  @apply animate-gentleFloat;
+}
 
-/* SELECTORES COMPUESTOS O PSEUDOCLASES (CSS normal, v4 no admite :hover en @utility) */
-.fade-in-scroll.visible{opacity:1;transform:translateY(0)}
-.btn-whatsapp:hover{animation:gentleHeartbeat var(--duration-heartbeat) ease-in-out infinite}
+@utility float-animation-slow{
+  @apply animate-gentleFloatSlow;
+}
+
+@utility fade-in-scroll{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all var(--duration-slow) var(--ease-natural);
+}
+
+@utility hero-title{
+  @apply animate-fadeInUp;
+}
+
+@utility hero-subtitle{
+  @apply animate-fadeInUpDelayed;
+}
+
+@utility hero-cta{
+  @apply animate-fadeInUpDelayedMore;
+}
+
+/* SELECTORES COMPUESTOS O PSEUDOCLASES (CSS normal) */
+.fade-in-scroll.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.btn-whatsapp:hover{
+  @apply animate-gentleHeartbeat;
+}
