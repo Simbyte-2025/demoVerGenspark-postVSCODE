@@ -17,41 +17,14 @@
   --shadow-button-hover:0 8px 16px rgba(0,0,0,.15);
 }
 
-/* === KEYFRAMES COMPLETOS === */
-@keyframes gentleFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(5deg); }
-}
-
-@keyframes gentleFloatSlow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes gentleHeartbeat {
-  0%, 100% { transform: scale(1.05); }
-  50% { transform: scale(1.08); }
-}
-
+/* Keyframe adicional para filtros (no usado en animaciones principales) */
 @keyframes filterPulse {
   0%, 100% { transform: scale(1.05); }
   50% { transform: scale(1.1); }
 }
 
-/* === CLASES DE ANIMACIÓN (CSS PURO - NO @utility) === */
-.float-animation {
-  display: inline-block;
-  animation: gentleFloat 3s ease-in-out infinite;
-}
-
-.float-animation-slow {
-  animation: gentleFloatSlow 8s ease-in-out infinite;
-}
+/* NOTA: Animaciones principales (gentleFloat, fadeInUp, etc.) están en index.html
+   para evitar que Tailwind v4 las optimice. Solo clases de estado aquí. */
 
 .fade-in-scroll {
   opacity: 0;
@@ -62,20 +35,4 @@
 .fade-in-scroll.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.hero-title {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.hero-subtitle {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
-}
-
-.hero-cta {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s backwards;
-}
-
-.btn-whatsapp:hover {
-  animation: gentleHeartbeat 1.5s ease-in-out infinite;
 }
