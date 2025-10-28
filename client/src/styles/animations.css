@@ -20,14 +20,14 @@
 /* Keyframes adicionales (no migrados a Tailwind config) */
 @keyframes filterPulse{0%,100%{transform:scale(1.05)}50%{transform:scale(1.1)}}
 
-/* UTILIDADES usando clases de animación de Tailwind v4 */
+/* UTILIDADES usando animaciones de Tailwind config (sin @apply, directo en CSS) */
 @utility float-animation{
   display:inline-block;
-  @apply animate-gentleFloat;
+  animation:gentleFloat 3s ease-in-out infinite;
 }
 
 @utility float-animation-slow{
-  @apply animate-gentleFloatSlow;
+  animation:gentleFloatSlow 8s ease-in-out infinite;
 }
 
 @utility fade-in-scroll{
@@ -37,15 +37,15 @@
 }
 
 @utility hero-title{
-  @apply animate-fadeInUp;
+  animation:fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
 }
 
 @utility hero-subtitle{
-  @apply animate-fadeInUpDelayed;
+  animation:fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s backwards;
 }
 
 @utility hero-cta{
-  @apply animate-fadeInUpDelayedMore;
+  animation:fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.4s backwards;
 }
 
 /* SELECTORES COMPUESTOS O PSEUDOCLASES (CSS normal) */
@@ -55,5 +55,5 @@
 }
 
 .btn-whatsapp:hover{
-  @apply animate-gentleHeartbeat;
+  animation:gentleHeartbeat 1.5s ease-in-out infinite;
 }
