@@ -1,12 +1,12 @@
+/* Importar fuentes primero */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;700&display=swap');
+
 /* Directivas de Tailwind CSS 4 */
 @import "tailwindcss";
 @import "tw-animate-css";
 
 /* Animaciones y variables globales */
 @import "./styles/animations.css";
-
-/* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
